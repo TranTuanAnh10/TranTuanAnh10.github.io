@@ -22,7 +22,7 @@
 	var offcanvasMenu = function() {
 
 		$('#page').prepend('<div id="fh5co-offcanvas" />');
-		$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
+		//$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
 		var clone1 = $('.menu-1 > ul').clone();
 		$('#fh5co-offcanvas').append(clone1);
 		var clone2 = $('.menu-2 > ul').clone();
@@ -212,10 +212,46 @@
 	var parallax = function() {
 		$(window).stellar();
 	};
-
-	
+	$("#submit-attending").on("click", function() {
+		console.log("OK");
+		var nameValue = document.getElementById('name').value;
+		var emailValue = document.getElementById('email').value;
+		console.log(nameValue, emailValue);
+		if(emailValue == "" || nameValue == "") {
+			alert("Hãy nhập tên và email của bạn vào trước!");
+		}
+		else{
+			var jsonData = {
+				name: nameValue,
+				email: emailValue
+			};
+			var jsonResult = JSON.stringify(jsonData);
+			console.log(jsonResult);
+		}
+		
+	});
+	function displayImage() {
+		var image = document.getElementById('show-no-attending');
+		image.style.display = 'block';
+		console.log("displayImage");
+	  }
+	  
+	  function hideImage() {
+		var image = document.getElementById('show-no-attending');
+		image.style.display = 'none';
+		console.log("hideImage");
+	  }
+	  var isShownImage = false;
+	  $("#no-attending").click(() => {
+		isShownImage = !isShownImage;
+		if (isShownImage === true) {
+			displayImage();
+		}
+		else
+			hideImage()
+	  });
 	$(function(){
-		mobileMenuOutsideClick();
+		//mobileMenuOutsideClick();
 		parallax();
 		offcanvasMenu();
 		burgerMenu();
@@ -226,6 +262,7 @@
 		loaderPage();
 		counter();
 		counterWayPoint();
+		hideImage();
 	});
 
 

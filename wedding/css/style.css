@@ -1845,5 +1845,11 @@ iframe{
   height: 500px;
   border: 0;
 }
+.show-no-attending{
+  text-align: center;
+}
+.image-no-attending{
+  width: 80%;
+}
 
 /*# sourceMappingURL=style.css.map */
