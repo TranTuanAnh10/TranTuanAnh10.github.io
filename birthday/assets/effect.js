@@ -192,6 +192,7 @@ $('document').ready(function(){
 		}
 		$('#cake_cut').delay(50000).fadeIn('slow').promise().done(function () {
 			console.log("Done message loop");
+			window.location(".birthday/more");
 		});
 		msgLoop(0);
 		
