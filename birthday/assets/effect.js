@@ -190,12 +190,15 @@ $('document').ready(function(){
 		});
 			// body...
 		}
-		$('#cake_cut').delay(50000).fadeIn('slow').promise().done(function () {
+		$('#cake_cut').delay(35000).fadeIn('slow').promise().done(function () {
 			console.log("Done message loop");
-			window.location("./birthday/more");
+			
 		});
 		msgLoop(0);
 		
+	});
+	$("#cake_cut").click(function () {
+		window.location.href = "./more_surprise";
 	});
 	
 });
