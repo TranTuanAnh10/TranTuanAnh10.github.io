@@ -133,7 +133,7 @@ main{
     align-items: center;
     background-color: #fff;
     background-image: url(image/backgroundMuse.png);
-    /* background-size: cover;  */
+    background-size: cover; 
     background-size: 100vw auto;
     background-repeat: no-repeat; 
     max-width: 100%;
@@ -257,6 +257,7 @@ main{
     align-items: center;
     padding: 20px 0px 20px 20px;
     background-image: url(/image/containerBackground.png);
+    background-size: cover; 
     background-size: 100vw auto;
     background-repeat: no-repeat; 
     height: 700px;
@@ -396,6 +397,7 @@ main{
 }
 .about-us{
     background-image: url("/image/Rectangle\ 25.png");
+    background-size: cover; 
     background-size: 100vw auto;
     background-repeat: no-repeat; 
     height: 550px;
