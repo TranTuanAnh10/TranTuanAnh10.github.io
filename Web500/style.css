@@ -439,7 +439,8 @@ main{
     text-transform: uppercase;
 }
 .contact{
-    background-color: #000;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 36%, rgba(92,89,15,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -495,24 +496,85 @@ main{
     width: 50%;
 }
 /* Responsive styles */
+/* Existing CSS Rules */
+/* Place your existing CSS rules here... */
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .muse-section {
+    header {
         flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        padding-right: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links a, .nav-links select {
+        margin: 10px 0;
+    }
+
+    .hero, .muse-section, .feature, .container, .container-lamp {
+        flex-direction: column;
+        align-items: center;
         padding: 20px;
     }
 
-    .muse-section-content {
-        max-width: 100%;
+    .hero-content, .muse-section-content, .feature-content, .container-content, .container-lamp-right {
+        align-items: center;
         text-align: center;
-        margin-bottom: 30px;
+        max-width: 100%;
     }
-    .feature {
+
+    .hero-content h1, .muse-section-content h1, .feature-header h1 {
+        font-size: 32px; /* Smaller font size */
+    }
+
+    .muse-section-image, .feature-content img {
+        width: 100%;
+        padding: 0 20px; /* Add padding if needed */
+    }
+
+    .features-content, .features-content-text {
         flex-direction: column;
-        align-items: flex-start;
-      }
-    
-      .feature-content {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
+    }
+
+    .slider-container {
+        padding: 0 20px;
+    }
+
+    .slider-profile, .slider-profile-name, .slider-comment {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-button {
+        flex-direction: column;
+    }
+
+    .contact-logo-img img {
+        width: 80%; /* Adjust size of logo in footer */
+    }
+}
+
+/* Additional Breakpoint for Very Small Devices */
+@media (max-width: 480px) {
+    .hero-content h1, .muse-section-content h1, .feature-header h1 {
+        font-size: 24px; /* Even smaller font size for very small devices */
+    }
+
+    .nav-links {
+        font-size: 14px;  /* Smaller font size for navigation links */
+    }
+
+    .hero-content, .muse-section-content, .feature-content {
+        padding: 10px;
+    }
 }
