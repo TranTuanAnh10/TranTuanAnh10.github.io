@@ -2,7 +2,14 @@
 @font-face {
     font-family: 'EuclidCircularA';
     src: url('font/Euclid\ Circular\ A\ Regular.ttf') format('truetype');
-    /* Repeat the src line with different font formats for cross-browser compatibility */
+}
+@font-face {
+    font-family: 'EuclidCircularALight';
+    src: url('font/Euclid\ Circular\ A\ Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'EuclidCircularAMedium';
+    src: url('font/Euclid\ Circular\ A\ Medium.ttf') format('truetype');
 }
 
 body {
@@ -271,6 +278,7 @@ main{
 .container-content-right h1{
     margin-left: 50px;
     font-size: 60px;
+    width: 50%;
 }
 .container-content-right p{
     margin-left: 50px;
@@ -330,16 +338,9 @@ main{
     display: flex;    
     justify-content: center;
 }
-.features-content-text .content{
-    /* display: flex; */
-    /* margin-right: 50px; */
-}
 .features-content-text .content h2{
     text-transform: uppercase;
     font-size: 60px;
-}
-.features-content-text .content p{
-
 }
 .features-content-text{
     width: 100%;
@@ -391,9 +392,106 @@ main{
 }
 .slider-comment p{
     font-size: 14px;
+    font-family: 'EuclidCircularA', sans-serif;
+}
+.about-us{
+    background-image: url("/image/Rectangle\ 25.png");
+    background-size: 100vw auto;
+    background-repeat: no-repeat; 
+    height: 550px;
 }
 
-
+.about-us-text{
+    background-color: #00000050;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    float: right;
+}
+.about-us-text-link{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.about-us-text span{
+    text-transform: uppercase;
+    margin: 20px;
+    font-size: 28px;
+}
+.about-us-text-button{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 20px;
+}
+.about-us-text-button p{
+    font-size: 18px;
+    margin: 0 50px 0 0;
+    text-transform: uppercase;
+}
+.contact{
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contact-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-top: 50px;
+}
+.contact-button a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 40px;
+}
+.contact-button-link{
+    display: flex;
+}
+.contact-button-link a{
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    align-items: center;
+    margin: 0 20px 0 20px;
+}
+.contact-button-link a p{
+    font-size: 16px;
+    margin: 0 0 0 10px;
+    font-family: 'EuclidCircularALight', sans-serif;
+}
+.button-logo{
+    object-fit: contain;
+    height: 20px;
+}
+.button-arrow{
+    object-fit: contain;
+    height: 16px;
+    margin-left: 10px;
+}
+.contact-logo{
+    margin-top: 200px;
+}
+.contact-logo-img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.contact-logo-img img{
+    width: 50%;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
     .muse-section {
