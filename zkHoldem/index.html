@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>zkholdem-game</title>
+
+    <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+    <meta name="viewport"
+          content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
+
+    <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- force webkit on 360 -->
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <!-- force edge on IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- force full screen on some browser -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+
+    <!--fix fireball/issues/3568 -->
+    <!--<meta name="browsermode" content="application">-->
+    <meta name="x5-page-mode" content="app">
+
+    <!--<link rel="apple-touch-icon" href=".png" />-->
+    <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+
+    <script type="application/javascript">
+        const blockedCountries = ['US', 'CN', 'IR', 'CU', 'KP', 'SY', 'MM'];
+        const blockedRegions   = ['Crimea', `Luhans'k`, `Donets'k`];
+
+        const IPDATA_APIKEY = `f47f1429b7dfb0d01a6d049b7cd283087b1b75fc3891f249d9c0919b`;
+
+        async function getIp () {
+            const res    = await fetch( 'https://api.ipify.org?format=json' );
+            const result = await res.json();
+            return result.ip;
+        }
+
+        async function tryBanIp () {
+            const ip = await getIp();
+
+            async function banIp () {
+                const res = await fetch( `https://api.ipdata.co?api-key=${ IPDATA_APIKEY }` );
+                if ( res.status === 200 ) {
+                    localStorage.setItem( ip, Date.now().toString() );
+
+                    const result       = await res.json();
+                    const country_code = result.country_code;
+                    const region       = result.region;
+                    if ( blockedCountries.includes( country_code ) || blockedRegions.includes( region ) ) {
+                        location.href = './disable.html';
+                    }
+                }
+            }
+
+            const lastTime = Number( localStorage.getItem( ip ) );
+            if ( !lastTime || isNaN( lastTime ) ) {
+                return banIp();
+            }
+
+            const expiryTime = 1000 * 60 * 60 * 24 * 3;
+
+            if ( Date.now() >= lastTime + expiryTime ) {
+                return banIp();
+            }
+        }
+
+        //tryBanIp();
+    </script>
+
+    <style>
+        #launch-page {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-image: url("./assets/start.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 0.1s ease-in-out;
+        }
+        #GameDiv{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="GameDiv" cc_exact_fit_screen="true">
+    <div id="Cocos3dGameContainer">
+        <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
+    </div>
+</div>
+<!-- <div id="launch-page"></div> -->
+
+<!-- Polyfills bundle. -->
+<script src="src/polyfills.bundle.js?03072024" charset="utf-8"> </script>
+
+<!-- SystemJS support. -->
+<script src="src/system.bundle.js?03072024" charset="utf-8"> </script>
+
+<!-- Import map -->
+<script src="src/import-map.json?03072024" type="systemjs-importmap" charset="utf-8"> </script>
+
+<script>
+    System.import('./index.js?03072024').catch(function(err) { console.error(err); })
+</script>
+
+</body>
+</html>
