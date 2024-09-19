@@ -1847,9 +1847,243 @@ iframe{
 }
 .show-no-attending{
   text-align: center;
+  justify-content: center;
 }
 .image-no-attending{
   width: 80%;
 }
+ .text-address{
+  font-size: 24px;
+ }
+ .text-address-name{
+  font-size: 44px;
+ }
+ .gg-map {
+    width: 600px;
+   height: 450px;
+ }
+ .map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px; /* adjust the height as needed */
+}
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; 
+  z-index: 100; 
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.6); /* Dark background */
+}
 
-/*# sourceMappingURL=style.css.map */
+.modal-content {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #7c3c3c; /* Elegant color for headings */
+}
+
+.close {
+  color: #7c3c3c;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #b06262; /* Highlight color on hover */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7c3c3c; /* Contrasting button color */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b06262; /* Lighter color on hover */
+}
+.play-button {
+  /* Existing styles... */
+  z-index: 1;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: #f4f4f4; /* Light background for the progress bar container */
+  position: relative;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #7c3c3c; /* Progress bar color */
+  width: 0; /* Initial width is 0 */
+}
+hearder{
+  background-image:url(images/anhphuong/TIZINO_75.jpg);
+}
+ @media screen and (max-width: 768px) {
+  .text-address {
+    font-size: 14px;
+  }
+  .text-address-name{
+    font-size: 24px;
+  }
+  hearder{
+    background-image:url(images/anhphuong/TXT05567.jpg);
+  }
+  /* .gg-map {
+    width: 350px;
+    height: 250px;
+  } */
+}
+
+.button {
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  width: 200px;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none; /* Ẩn modal ban đầu */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+/* Form modal hình chữ nhật */
+.modal {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 900px; /* Đặt chiều rộng cụ thể để form có hình chữ nhật */
+  height: 600px; /* Chiều cao cố định */
+  position: relative; /* Vị trí tương đối */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: fadeIn 0.3s ease-in-out; /* Hiệu ứng hiện */
+}
+
+/* Hiệu ứng khi form hiện ra */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Các phần tử trong modal */
+.modal__label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.modal__input, .modal__textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; 
+}
+
+.modal__submit {
+  padding: 10px 20px;
+  background-color: #7c3c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.modal__submit:hover {
+  background-color: #27ae60;
+}
+
+/* Nút đóng modal */
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal__close:hover {
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .modal {
+      width: 90%; /* Kích thước 90% chiều rộng màn hình trên thiết bị di động */
+      height: auto; /* Chiều cao tự động để phù hợp với nội dung */
+  }
+
+  .button {
+      width: 160px; /* Điều chỉnh kích thước nút */
+  }
+
+  .modal__submit {
+      font-size: 14px; /* Điều chỉnh kích thước font trên thiết bị nhỏ */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+      width: 95%; /* Kích thước 95% chiều rộng màn hình trên thiết bị nhỏ hơn */
+  }
+
+  .modal__submit {
+      font-size: 12px; /* Điều chỉnh kích thước font trên thiết bị nhỏ hơn */
+  }
+}

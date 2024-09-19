@@ -221,7 +221,7 @@
 	  function hideImage() {
 		var image = document.getElementById('qr-code');
 		image.style.display = 'none';
-		showAndHidePr(false, false);
+		// showAndHidePr(false, false);
 	  }
 	  var isShownImage = false;
 	  $("#no-attending").click(() => {
@@ -232,34 +232,78 @@
 		else
 			hideImage()
 	  });
-	  var isShowB = false;
-	  var isShowG = false;
-	  $("#btn-show-bride").click(() => {
-		isShowB = !isShowB;
-		isShowG = false;
-		if(isShowB === true){
-			showAndHidePr(true, false);
-		}
-		else{
-			showAndHidePr(false, false);
-		}
+	  $("#show-more").click(() => {
+		window.location.href = 'weddinggallery.html';
 	  });
-	  $("#btn-show-bridegroom").click(() => {
-		isShowG = !isShowG;
-		isShowB = false;
-		if(isShowG === true){
-			showAndHidePr(false, true);
-		}
-		else{
-			showAndHidePr(false, false);
-		}
-	  });
-	  var showAndHidePr = function(isShowBride, isShowBridegroom){
-		var imageBride = document.getElementById('show-bride');
-		var imageBridegroom = document.getElementById('show-bridegroom');
-		imageBride.style.display = isShowBride ? 'block': "none";
-		imageBridegroom.style.display = isShowBridegroom ? 'block': "none";
-	  }
+	//   var isShowB = false;
+	//   var isShowG = false;
+	//   $("#btn-show-bride").click(() => {
+	// 	isShowB = !isShowB;
+	// 	isShowG = false;
+	// 	if(isShowB === true){
+	// 		showAndHidePr(true, false);
+	// 	}
+	// 	else{
+	// 		showAndHidePr(false, false);
+	// 	}
+	//   });
+	//   $("#btn-show-bridegroom").click(() => {
+	// 	isShowG = !isShowG;
+	// 	isShowB = false;
+	// 	if(isShowG === true){
+	// 		showAndHidePr(false, true);
+	// 	}
+	// 	else{
+	// 		showAndHidePr(false, false);
+	// 	}
+	//   });
+	//   var showAndHidePr = function(isShowBride, isShowBridegroom){
+	// 	var imageBride = document.getElementById('show-bride');
+	// 	var imageBridegroom = document.getElementById('show-bridegroom');
+	// 	imageBride.style.display = isShowBride ? 'block': "none";
+	// 	imageBridegroom.style.display = isShowBridegroom ? 'block': "none";
+	//   }
+	  var audioIndex = 0;
+    var audioFiles = ['audio/IDo.mp3', 'audio/BeautifulInWhite.mp3', 'audio/my-love-lyrics.mp3', 'audio/until-you-audio.mp3', 'audio/i-lay-my-love-on-you-official-video.mp3']; // Add more audio files to the array if needed
+	var nameSongs = ['I Do - 911', 'Beautiful In White - Shane Filan', 'My Love - Westlife', 'Shayne Ward - Until You', 'I Lay My Love On You - Westlife'];
+    var audio = new Audio();
+	var songName = document.getElementById('songName');
+	// document.getElementById('play-audio').addEventListener
+	$('#play-audio').click(() => {
+		console.log("Audio playing: " + audioFiles[audioIndex]);
+        audio.src = audioFiles[audioIndex];
+		songName.innerText = nameSongs[audioIndex];
+        audio.play();
+	});
+
+    audio.addEventListener('ended', function() {
+      audioIndex++;
+      if (audioIndex < audioFiles.length) {
+        audio.src = audioFiles[audioIndex];
+		songName.innerText = nameSongs[audioIndex];
+        audio.play();
+      } else {
+        audioIndex = 0;
+		audio.src = audioFiles[audioIndex];
+		songName.innerText = nameSongs[audioIndex];
+        audio.play();  
+      }
+    }, false);
+	var progress = document.getElementById("progress");
+	audio.addEventListener('timeupdate', function() {
+	  var duration = audio.duration;
+	  var currentTime = audio.currentTime;
+	  var progressWidth = (currentTime / duration) * 100;
+	  progress.style.width = progressWidth + "%";
+	});
+
+	document.getElementById('showFormBtn').addEventListener('click', function() {
+		document.getElementById('modalOverlay').style.display = 'flex';  // Hiển thị modal
+	});
+	
+	document.getElementById('closeModal').addEventListener('click', function() {
+		document.getElementById('modalOverlay').style.display = 'none';  // Ẩn modal
+	});
 	$(function(){
 		//mobileMenuOutsideClick();
 		parallax();
