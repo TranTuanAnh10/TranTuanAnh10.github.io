@@ -43,9 +43,9 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-	<div id="modal" class="modal">
+	<div id="modal_main" class="modal_main">
 		<div class="modal-content">
-		  <span class="close">&times;</span>
+		  <span class="close_modal_main">&times;</span>
 		  <h2>Chào Bạn,</h2>
 		  <p>Chúng tôi rất vui mừng được mời bạn đến dự đám cưới của chúng tôi! Xin hãy nhập tên của bạn:</p>
 		  <form id="nameForm">
@@ -243,7 +243,7 @@
 				<div class="row">
 					<div class="col-md-12 animate-box">
 						<div class="wrap-testimony">
-							<div class="owl-carousel-fullwidth">
+							<div class="owl-carousel-fullwidth" id="carousel">
 								<div class="item">
 									<div class="testimony-slide active text-center">
 										<figure>
@@ -276,35 +276,10 @@
 											<p>"Chúc mừng đôi tân lang, tân nương!! Chúc hai vợ chồng có một khởi đầu mới thuận lợi, có những ngày tháng thật đẹp bên nhau, mong tất cả những điều ý nghĩa sau ngày quan trọng này đều đến với 2 bạn. Bách niên giai lão, hạnh phúc trọn vẹn nhé! Happy Wedding!!"</p>
 										</blockquote>
 									</div>
-								</div>
-								<!-- <div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/hoanghien.png" alt="user">
-										</figure>
-										<span>Hoàng Hiền</span>
-										<blockquote>
-											<p>"Chúc mừng đám cưới em! Chúc em và chồng mình có một cuộc sống hạnh phúc, tràn đầy tình yêu và sự đoàn kết. Mọi điều tốt đẹp nhất cho tương lai của hai người. Chúc mừng!"</p>
-										</blockquote>
-									</div>
-								</div> -->
-								<!-- <div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/anhdomixi.jpg" alt="user">
-										</figure>
-										<span>Phùng Thanh Độ</span>
-										<blockquote>
-											<p>"Cảm ơn em! Anh chúc em hạnh phúc nhớ!"</p>
-										</blockquote>
-									</div>
-								</div> -->
+								</div> 
 							</div>
 						</div>
 					</div>
-					<!-- <button class="button button--showForm" id="showFormBtn">Viết lời chúc</button> -->
-					
-					
 				</div>
 				<div class="row animate-box" data-animate-effect="fadeIn"style="text-align: center;" >
 					<button class="play-button" id="showFormBtn">Viết lời chúc</button>
@@ -333,7 +308,14 @@
 			</form>
 		</div>
 	</div>
-	
+	<div class="modal-overlay" id="popup">
+		<div class="popup">
+			<div class="popup-content">
+				<!-- <span class="popup-close" id="popupClose">&times;</span> -->
+				<p>Thông tin của bạn đang được kiểm duyệt!</p>
+			</div>
+		</div>
+	</div>
 	<div id="fh5co-services" class="fh5co-section-gray">
 		<div class="container">
 			<div class="row animate-box" style='display: flex; justify-content: center; align-items: center;'>
@@ -505,7 +487,7 @@
 	// const db = getDatabase(app);
 	// const dbRef = ref(getDatabase());
 	
-	console.log(typeof(db), db);
+	//console.log(typeof(db), db);
 	document.getElementById("submit-attending").addEventListener('click', function(e){
 		e.preventDefault();
 		var nameValue = document.getElementById('name').value;
@@ -534,15 +516,17 @@
 	});
 	var isShow = false;
 	window.onload = function() {
-	var modal = document.getElementById('modal');
+	var modal = document.getElementById('modal_main');
 	var body = document.querySelector('body');
-	var closeButton = document.getElementsByClassName('close')[0];
+	console.log(document.getElementsByClassName('close_modal_main'));
+	var closeButton = document.getElementsByClassName('close_modal_main')[0];
 	
 	modal.style.display = "flex";
 	body.style.overflow = "hidden"; // Disable scrolling when modal is open
 	body.style.backgroundColor = "rgba(0, 0, 0, 0.6)"; // Dark background
 	
 	closeButton.onclick = function() {
+		console.log("click func");
 		closeModal();
 	}
 
@@ -555,42 +539,98 @@
 		username: userNameByE,
 		});
 	
-    // Save a flag in local storage indicating that the form has been submitted
     localStorage.setItem('formSubmitted', 'true');
     
     closeModal();
   });
+	
+	var formSubmitted = localStorage.getItem('formSubmitted');
+	if (formSubmitted) {
+		closeModal();
+	}
+
+	function closeModal() {
+		modal.style.display = "none";
+		body.style.overflow = "auto";
+		body.style.backgroundColor = "#f4f4f4"; 
+	}
+	const serverData = [
+		{
+			name: 'Tuấn Anh',
+			imageUrl: 'images/matminh.jpg',
+			message: 'Chúc mừng đến sự bắt đầu của một chương mới trong cuộc sống của hai bạn. Hãy luôn giữ lửa tình yêu sáng mãi, và những khoảnh khắc đẹp nhất sẽ không bao giờ tan đi.',
+			censored: true
+		},
+		{
+			name: 'Hồng Nhung',
+			imageUrl: 'images/couple-2.jpg',
+			message: 'Mong rằng các bạn sẽ có một cuộc sống hạnh phúc và đầy tình yêu thương.',
+			censored: true
+		}
+	];
+	
+	const carousel = document.getElementById('carousel');
+	const popup = document.getElementById('popup');
+	
+
+	//const popupClose = document.getElementById('popupClose');
+
+	function createCarouselItem(user) {
+		return `
+			<div class="item">
+				<div class="testimony-slide active text-center">
+					<figure>
+						<img src="${user.imageUrl}" alt="${user.name}">
+					</figure>
+					<span>${user.name}</span>
+					<blockquote>
+						<p>"${user.message}"</p>
+					</blockquote>
+				</div>
+			</div>
+		`;
+	}
+	var initDataUserGift = function(dataFromServer){
+		carousel.innerHTML = "";
+		dataFromServer.forEach(user => {
+			if(user.censored)
+				carousel.innerHTML += createCarouselItem(user);
+		});
+		$(".owl-carousel-fullwidth").owlCarousel();
+	}
+
+	initDataUserGift(serverData);
+
 	document.getElementById('infoForm').addEventListener('submit', function(event) {
-		event.preventDefault(); 
+		event.preventDefault(); // Ngăn form submit mặc định
+
+		// Lấy các giá trị từ form
 		const name = document.getElementById('name').value;
 		const message = document.getElementById('message').value;
 		const avatarUrl = document.getElementById('avatarUrl').value;
-
-		document.getElementById('displayName').textContent = name;
-		document.getElementById('displayMessage').textContent = message;
-
-		// if (avatarUrl) {
-		// 	document.getElementById('displayAvatar').src = avatarUrl;
-		// } else {
-		// 	document.getElementById('displayAvatar').src = ''; // Xóa ảnh nếu URL trống
-		// }
-
+		var data = { 
+			name: name,
+			imageUrl: avatarUrl,
+			message: message,
+			censored: false
+		}
+		serverData.push(data);
+		// set(ref(db, 'visit/' + userNameByE), {
+		// 	username: userNameByE,
+		// 	name: name,
+		//     imageUrl: avatarUrl,
+		//     message: message
+		// });
+		//initDataUserGift(serverData);
+		popup.style.display = 'block';
 		document.getElementById('modalOverlay').style.display = 'none';
 
+		document.getElementById('infoForm').reset();
 	});
-  // Check if the form has been submitted previously
-  var formSubmitted = localStorage.getItem('formSubmitted');
-  if (formSubmitted) {
-    closeModal();
-  }
-
-  function closeModal() {
-    modal.style.display = "none";
-    body.style.overflow = "auto"; // Enable scrolling when modal is closed
-    body.style.backgroundColor = "#f4f4f4"; // Reset background color
-  }
+	popup.addEventListener('click', function() {
+		popup.style.display = 'none';
+	});
 }
-  
   </script>
 
 	</body>

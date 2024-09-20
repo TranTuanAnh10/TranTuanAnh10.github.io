@@ -1868,7 +1868,7 @@ iframe{
   align-items: center;
   height: 450px; /* adjust the height as needed */
 }
-.modal {
+.modal_main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1894,7 +1894,7 @@ h2 {
   color: #7c3c3c; /* Elegant color for headings */
 }
 
-.close {
+.close_modal_main {
   color: #7c3c3c;
   float: right;
   font-size: 28px;
@@ -2065,25 +2065,97 @@ hearder{
 
 @media (max-width: 768px) {
   .modal {
-      width: 90%; /* Kích thước 90% chiều rộng màn hình trên thiết bị di động */
-      height: auto; /* Chiều cao tự động để phù hợp với nội dung */
+      width: 90%; 
+      height: auto; 
   }
 
   .button {
-      width: 160px; /* Điều chỉnh kích thước nút */
+      width: 160px;
   }
 
   .modal__submit {
-      font-size: 14px; /* Điều chỉnh kích thước font trên thiết bị nhỏ */
+      font-size: 14px; 
   }
 }
 
 @media (max-width: 480px) {
   .modal {
-      width: 95%; /* Kích thước 95% chiều rộng màn hình trên thiết bị nhỏ hơn */
+      width: 95%; 
   }
 
   .modal__submit {
-      font-size: 12px; /* Điều chỉnh kích thước font trên thiết bị nhỏ hơn */
+      font-size: 12px; 
+  }
+}
+
+.modal-overlay {
+  display: none; /* Ẩn overlay mặc định */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); 
+  z-index: 1000;
+}
+
+.popup {
+  display: block; 
+  position: fixed;
+  z-index: 1001; 
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; /* Điều chỉnh chiều rộng */
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out; /* Hiệu ứng hiện popup */
+}
+
+.popup-content {
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px; /* Đặt nút close lên trên cùng */
+  right: 15px; /* Đặt nút close ở góc phải */
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+  background: transparent; /* Nền trong suốt */
+  border: none;
+  font-weight: bold;
+}
+
+.popup-close:hover {
+  color: #555;
+}
+
+.popup p {
+  font-size: 18px; /* Kích thước chữ thông báo */
+  margin: 20px 0;
+  color: #333; /* Màu chữ thông báo */
+}
+
+/* Hiệu ứng khi popup hiện ra */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive cho popup */
+@media (max-width: 768px) {
+  .popup {
+      width: 90%; /* Đảm bảo popup hiển thị tốt trên thiết bị nhỏ hơn */
+  }
+}
+
+@media (max-width: 480px) {
+  .popup {
+      width: 95%; /* Popup trên màn hình rất nhỏ */
   }
 }
