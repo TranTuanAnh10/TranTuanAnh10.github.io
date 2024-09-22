@@ -213,28 +213,28 @@
 		$(window).stellar();
 	};
 	
-	function displayImage() {
-		var image = document.getElementById('qr-code');
-		image.style.display = 'flex';
-	  }
+	// function displayImage() {
+	// 	var image = document.getElementById('qr-code');
+	// 	image.style.display = 'flex';
+	//   }
 	  
-	  function hideImage() {
-		var image = document.getElementById('qr-code');
-		image.style.display = 'none';
-		// showAndHidePr(false, false);
-	  }
-	  var isShownImage = false;
-	  $("#no-attending").click(() => {
-		isShownImage = !isShownImage;
-		if (isShownImage === true) {
-			displayImage();
-		}
-		else
-			hideImage()
-	  });
-	  $("#show-more").click(() => {
-		window.location.href = 'weddinggallery.html';
-	  });
+	//   function hideImage() {
+	// 	var image = document.getElementById('qr-code');
+	// 	image.style.display = 'none';
+	// 	// showAndHidePr(false, false);
+	//   }
+	//   var isShownImage = false;
+	//   $("#no-attending").click(() => {
+	// 	isShownImage = !isShownImage;
+	// 	if (isShownImage === true) {
+	// 		displayImage();
+	// 	}
+	// 	else
+	// 		hideImage()
+	//   });
+	//   $("#show-more").click(() => {
+	// 	window.location.href = 'weddinggallery.html';
+	//   });
 	//   var isShowB = false;
 	//   var isShowG = false;
 	//   $("#btn-show-bride").click(() => {
@@ -304,6 +304,8 @@
 	document.getElementById('closeModal').addEventListener('click', function() {
 		document.getElementById('modalOverlay').style.display = 'none';  // Ẩn modal
 	});
+	
+	
 	$(function(){
 		//mobileMenuOutsideClick();
 		parallax();
@@ -316,7 +318,7 @@
 		loaderPage();
 		counter();
 		counterWayPoint();
-		hideImage();
+		// hideImage();
 	});
 
 

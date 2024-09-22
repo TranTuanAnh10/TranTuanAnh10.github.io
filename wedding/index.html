@@ -28,6 +28,8 @@
 	<!-- Owl Carousel  -->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
@@ -43,7 +45,7 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-	<div id="modal_main" class="modal_main">
+	<!-- <div id="modal_main" class="modal_main">
 		<div class="modal-content">
 		  <span class="close_modal_main">&times;</span>
 		  <h2>Chào Bạn,</h2>
@@ -53,7 +55,7 @@
 			<button type="submit">RSVP</button>
 		  </form>
 		</div>
-	  </div>
+	  </div> -->
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
 		<div class="container">
@@ -243,8 +245,9 @@
 				<div class="row">
 					<div class="col-md-12 animate-box">
 						<div class="wrap-testimony">
-							<div class="owl-carousel-fullwidth" id="carousel">
-								<div class="item">
+							<!-- <div class="owl-carousel-fullwidth" id="carousel"> -->
+							<div class="single-item" id="carousel">
+								<!-- <div class="item">
 									<div class="testimony-slide active text-center">
 										<figure>
 											<img src="images/matminh.jpg" alt="user">
@@ -276,7 +279,7 @@
 											<p>"Chúc mừng đôi tân lang, tân nương!! Chúc hai vợ chồng có một khởi đầu mới thuận lợi, có những ngày tháng thật đẹp bên nhau, mong tất cả những điều ý nghĩa sau ngày quan trọng này đều đến với 2 bạn. Bách niên giai lão, hạnh phúc trọn vẹn nhé! Happy Wedding!!"</p>
 										</blockquote>
 									</div>
-								</div> 
+								</div>  -->
 							</div>
 						</div>
 					</div>
@@ -332,7 +335,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
+	<!-- <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -363,41 +366,20 @@
 									<input type="number" class="form-control" id="number_people" placeholder="Số người tham dự">
 								</div>
 							</div>
-							<!-- <div class="col-md-4 col-sm-4">
-								<div class="form-group">
-									<label for="email" class="sr-only">Email</label>
-									<input type="email" class="form-control" id="email" placeholder="Email">
-								</div>
-							</div> -->
 							<div class="col-md-4 col-sm-4" style='display: flex; min-width: 240px; justify-content: space-between; align-items: center; padding-inline: 15px; '>
 								<button id = "submit-attending" class="btn col-md-2 btn-default btn-block " style='margin: 0; width: 45%; height: 40px; padding: 0;'>Có</button>
 								<button id = "no-attending" class="btn col-md-2 btn-default btn-block" style="background-color: #773d58; margin: 0; width: 45%; height: 40px; padding: 0">Không</button>
 							</div>
-							<!-- <div id="qr-code" class="col-md-4 col-sm-4" style="display: flex; min-width: 240px; flex-direction: column; margin-top: 20px; 
-								margin-bottom: 0;">
-									<div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-bottom: 0;">
-										<p style="font-size: 14px; margin-bottom: 10px;">LÌ XÌ GÓP VUI</p>
-									</div>
-									<div style="display: flex; justify-content: space-between; margin-bottom: 20px;" >
-										<button id="btn-show-bridegroom" class="btn btn-primary btn-block" style="height: 31px; font-size: 12px; width: 45%; padding: 0; margin: 0;
-										">Chú rể</button>
-										<button id="btn-show-bride" class="btn btn-primary btn-block" style="height: 31px; font-size: 12px; width: 45%; padding: 0; margin: 0;
-										">Cô Dâu</button>
-									</div>
-								</div> -->
 							<br />
 							<div class="show-no-attending" id="qr-code" >
 								<img id="myImage" class="image-no-attending"  style='max-width: 300px; object-fit: cover;' src="images/nhagai.png" alt="Hình ảnh" >
 							</div>
-							<!-- <div class="show-no-attending" id="show-bridegroom" >
-								<img id="myImage" class="image-no-attending"  style='max-width: 300px; object-fit: cover;' src="images/nha_trai.png" alt="Hình ảnh" >
-							</div> -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 
@@ -444,6 +426,8 @@
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
+	
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
 	<script src="js/simplyCountdown.js"></script>
@@ -468,6 +452,7 @@
         enableUtc: false
     });
 </script>
+
 <script type="module">
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
 	import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
@@ -488,151 +473,167 @@
 	// const dbRef = ref(getDatabase());
 	
 	//console.log(typeof(db), db);
-	document.getElementById("submit-attending").addEventListener('click', function(e){
-		e.preventDefault();
-		var nameValue = document.getElementById('name').value;
-		//var emailValue = document.getElementById('email').value;
-		var phoneValue = document.getElementById('phone').value;
-		var numberValue = document.getElementById('number_people').value;
-		if(phoneValue == "" || nameValue == "") {
-			alert("Hãy nhập tên và email của bạn vào trước!");
-		}
-		if(numberValue == "" && numberValue <= 0){
-			alert("Số người tham dự không được để không hoặc trống!");
-		}
-		else{
-			set(ref(db, 'user/' + phoneValue),
-			{
-				//email: emailValue,
-				username: nameValue,
-				phone: phoneValue,
-				numberValue: numberValue
-			});
-			alert("Cảm ơn " + nameValue + " vì đã dành thời gian và tới tham dự đám cưới của chúng tôi!");
-			document.getElementById('name').value = "";
-			document.getElementById('phone').value = "";
-			document.getElementById('number_people').value = "";
-		}
-	});
+	// document.getElementById("submit-attending").addEventListener('click', function(e){
+	// 	e.preventDefault();
+	// 	var nameValue = document.getElementById('name').value;
+	// 	//var emailValue = document.getElementById('email').value;
+	// 	var phoneValue = document.getElementById('phone').value;
+	// 	var numberValue = document.getElementById('number_people').value;
+	// 	if(phoneValue == "" || nameValue == "") {
+	// 		alert("Hãy nhập tên và email của bạn vào trước!");
+	// 	}
+	// 	if(numberValue == "" && numberValue <= 0){
+	// 		alert("Số người tham dự không được để không hoặc trống!");
+	// 	}
+	// 	else{
+	// 		set(ref(db, 'user/' + phoneValue),
+	// 		{
+	// 			//email: emailValue,
+	// 			username: nameValue,
+	// 			phone: phoneValue,
+	// 			numberValue: numberValue
+	// 		});
+	// 		alert("Cảm ơn " + nameValue + " vì đã dành thời gian và tới tham dự đám cưới của chúng tôi!");
+	// 		document.getElementById('name').value = "";
+	// 		document.getElementById('phone').value = "";
+	// 		document.getElementById('number_people').value = "";
+	// 	}
+	// });
 	var isShow = false;
 	window.onload = function() {
-	var modal = document.getElementById('modal_main');
-	var body = document.querySelector('body');
-	console.log(document.getElementsByClassName('close_modal_main'));
-	var closeButton = document.getElementsByClassName('close_modal_main')[0];
-	
-	modal.style.display = "flex";
-	body.style.overflow = "hidden"; // Disable scrolling when modal is open
-	body.style.backgroundColor = "rgba(0, 0, 0, 0.6)"; // Dark background
-	
-	closeButton.onclick = function() {
-		console.log("click func");
-		closeModal();
-	}
+		// var modal = document.getElementById('modal_main');
+		// var body = document.querySelector('body');
+		// console.log(document.getElementsByClassName('close_modal_main'));
+		// var closeButton = document.getElementsByClassName('close_modal_main')[0];
+		
+		// modal.style.display = "flex";
+		// body.style.overflow = "hidden"; // Disable scrolling when modal is open
+		// body.style.backgroundColor = "rgba(0, 0, 0, 0.6)"; // Dark background
+		
+		// closeButton.onclick = function() {
+		// 	console.log("click func");
+		// 	closeModal();
+		// }
 
-	var form = document.getElementById('nameForm');
-	form.addEventListener('submit', function(e) {
-		e.preventDefault();
-		var userNameByE = document.getElementById('userName').value;
-		document.getElementById("name").value = userNameByE;
-		set(ref(db, 'visit/' + userNameByE), {
-		username: userNameByE,
-		});
-	
-    localStorage.setItem('formSubmitted', 'true');
-    
-    closeModal();
-  });
-	
-	var formSubmitted = localStorage.getItem('formSubmitted');
-	if (formSubmitted) {
-		closeModal();
-	}
-
-	function closeModal() {
-		modal.style.display = "none";
-		body.style.overflow = "auto";
-		body.style.backgroundColor = "#f4f4f4"; 
-	}
-	const serverData = [
-		{
-			name: 'Tuấn Anh',
-			imageUrl: 'images/matminh.jpg',
-			message: 'Chúc mừng đến sự bắt đầu của một chương mới trong cuộc sống của hai bạn. Hãy luôn giữ lửa tình yêu sáng mãi, và những khoảnh khắc đẹp nhất sẽ không bao giờ tan đi.',
-			censored: true
-		},
-		{
-			name: 'Hồng Nhung',
-			imageUrl: 'images/couple-2.jpg',
-			message: 'Mong rằng các bạn sẽ có một cuộc sống hạnh phúc và đầy tình yêu thương.',
-			censored: true
-		}
-	];
-	
-	const carousel = document.getElementById('carousel');
-	const popup = document.getElementById('popup');
-	
-
-	//const popupClose = document.getElementById('popupClose');
-
-	function createCarouselItem(user) {
-		return `
-			<div class="item">
-				<div class="testimony-slide active text-center">
-					<figure>
-						<img src="${user.imageUrl}" alt="${user.name}">
-					</figure>
-					<span>${user.name}</span>
-					<blockquote>
-						<p>"${user.message}"</p>
-					</blockquote>
-				</div>
-			</div>
-		`;
-	}
-	var initDataUserGift = function(dataFromServer){
-		carousel.innerHTML = "";
-		dataFromServer.forEach(user => {
-			if(user.censored)
-				carousel.innerHTML += createCarouselItem(user);
-		});
-		$(".owl-carousel-fullwidth").owlCarousel();
-	}
-
-	initDataUserGift(serverData);
-
-	document.getElementById('infoForm').addEventListener('submit', function(event) {
-		event.preventDefault(); // Ngăn form submit mặc định
-
-		// Lấy các giá trị từ form
-		const name = document.getElementById('name').value;
-		const message = document.getElementById('message').value;
-		const avatarUrl = document.getElementById('avatarUrl').value;
-		var data = { 
-			name: name,
-			imageUrl: avatarUrl,
-			message: message,
-			censored: false
-		}
-		serverData.push(data);
-		// set(ref(db, 'visit/' + userNameByE), {
+		// var form = document.getElementById('nameForm');
+		// form.addEventListener('submit', function(e) {
+		// 	e.preventDefault();
+		// 	var userNameByE = document.getElementById('userName').value;
+		// 	document.getElementById("name").value = userNameByE;
+		// 	set(ref(db, 'visit/' + userNameByE), {
 		// 	username: userNameByE,
-		// 	name: name,
-		//     imageUrl: avatarUrl,
-		//     message: message
+		// 	});
+		
+		// 	localStorage.setItem('formSubmitted', 'true');
+		
+		// 	closeModal();
 		// });
-		//initDataUserGift(serverData);
-		popup.style.display = 'block';
-		document.getElementById('modalOverlay').style.display = 'none';
+		
+		// var formSubmitted = localStorage.getItem('formSubmitted');
+		// if (formSubmitted) {
+		// 	closeModal();
+		// }
 
-		document.getElementById('infoForm').reset();
-	});
-	popup.addEventListener('click', function() {
-		popup.style.display = 'none';
-	});
-}
-  </script>
+		// function closeModal() {
+		// 	modal.style.display = "none";
+		// 	body.style.overflow = "auto";
+		// 	body.style.backgroundColor = "#f4f4f4"; 
+		// }
+		const serverData = [
+			{
+				name: 'Tuấn Anh',
+				imageUrl: 'images/matminh.jpg',
+				message: 'Chúc mừng đến sự bắt đầu của một chương mới trong cuộc sống của hai bạn. Hãy luôn giữ lửa tình yêu sáng mãi, và những khoảnh khắc đẹp nhất sẽ không bao giờ tan đi.',
+				censored: true
+			},
+			{
+				name: 'Hồng Nhung',
+				imageUrl: 'images/couple-2.jpg',
+				message: 'Mong rằng các bạn sẽ có một cuộc sống hạnh phúc và đầy tình yêu thương.',
+				censored: true
+			}
+		];
+		var $slider = $('.single-item');
+		const carousel = document.getElementById('carousel');
+		const popup = document.getElementById('popup');
+		var showSlider = function(){
+			console.log("show slider");
+			$slider.slick({
+				  	dots: true,
+					infinite: true,
+					speed: 300,
+					autoPlay:true,
+					slidesToShow: 1,
+					adaptiveHeight: true,
+					arrows: false,
+					draggable: true,
+					centerMode:true,
+			});
+		}
+		showSlider();
 
-	</body>
+		//const popupClose = document.getElementById('popupClose');
+
+		function createCarouselItem(user) {
+			return `
+				<div class="item">
+					<div class="testimony-slide active text-center">
+						<figure>
+							<img src="${user.imageUrl}" alt="${user.name}">
+						</figure>
+						<span>${user.name}</span>
+						<blockquote>
+							<p>"${user.message}"</p>
+						</blockquote>
+					</div>
+				</div>
+			`;
+		}
+		var initDataUserGift = function(dataFromServer){
+			$slider.slick('slickRemove', null, null, true); 
+			dataFromServer.forEach(user => {
+				if(user.censored){
+					console.log("show item", user.name)
+					var newSlide = createCarouselItem(user);
+        			$slider.slick('slickAdd', newSlide);
+				}
+			});
+		}
+
+		initDataUserGift(serverData);
+
+		document.getElementById('infoForm').addEventListener('submit', function(event) {
+			event.preventDefault(); // Ngăn form submit mặc định
+
+			// Lấy các giá trị từ form
+			const name = document.getElementById('name').value;
+			const message = document.getElementById('message').value;
+			const avatarUrl = document.getElementById('avatarUrl').value;
+			var data = { 
+				name: name,
+				imageUrl: avatarUrl,
+				message: message,
+				censored: true
+			}
+			serverData.push(data);
+			// set(ref(db, 'visit/' + userNameByE), {
+			// 	username: userNameByE,
+			// 	name: name,
+			//     imageUrl: avatarUrl,
+			//     message: message
+			// });
+			initDataUserGift(serverData);
+			popup.style.display = 'block';
+			document.getElementById('modalOverlay').style.display = 'none';
+
+			document.getElementById('infoForm').reset();
+		});
+		popup.addEventListener('click', function() {
+			popup.style.display = 'none';
+		});
+		
+	}
+  	</script>
+</body>
 </html>
 
