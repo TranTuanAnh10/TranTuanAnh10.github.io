@@ -707,10 +707,12 @@ Load of love!
 			event.preventDefault(); // Ngăn form submit mặc định
 	
 			const message = document.getElementById('message').value;
-			
-			set(ref(db, 'message'), {
+			const currentDate = new Date(); // Lấy thời gian hiện tại
+			const timestamp = currentDate.getTime();
+			set(ref(db, 'message/' + timestamp), {
 			    message: message
 			});
+			alert("Tin nhắn của bạn đã được gửi");
 			document.getElementById('modalOverlay').style.display = 'none';
 	
 			document.getElementById('infoForm').reset();
