@@ -44,20 +44,30 @@
 
     <script>
         function calculateLunarNewYear() {
+            const lunarNewYearDates = {
+                2025: "2025-01-29",
+                2026: "2026-02-16",
+                2027: "2027-02-05"
+            };
+
             const currentYear = new Date().getFullYear();
-           
-            const lunarNewYear = new Date(2025, 0, 29); 
+            const lunarNewYearDate = lunarNewYearDates[currentYear] || `${currentYear}-02-01`; 
+            const lunarNewYear = new Date(lunarNewYearDate);
 
             if (new Date() > lunarNewYear) {
-                lunarNewYear.setFullYear(currentYear + 1);
+                const nextYear = currentYear + 1;
+                const nextLunarDate = lunarNewYearDates[nextYear] || `${nextYear}-02-01`;
+                return new Date(nextLunarDate);
             }
+
             return lunarNewYear;
         }
 
         function updateCountdown() {
-            const now = new Date();
+            const now = new Date(new Date().getTime() + 7 * 60 * 60 * 1000);
             const lunarNewYear = calculateLunarNewYear();
             const diffLunar = lunarNewYear - now;
+
 
             if (diffLunar > 0) {
                 const days = Math.floor(diffLunar / (1000 * 60 * 60 * 24));
