@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Đếm ngược đến Tết Âm Lịch</title>
     <style>
         body {
@@ -34,14 +35,15 @@
     </style>
 </head>
 <body>
-    <h1>Tết Âm Lịch</h1>
+    <div class="main">
+        <h1>Tết Âm Lịch</h1>
     <div class="countdown" id="countdown">Đang tải...</div>
     <!-- <h1>Đếm ngược đến Tết Dương Lịch</h1>
     <div class="countdown" id="countdownNewYear">Đang tải...</div> -->
     <!-- <footer>
         &copy; 2024 - Tác giả: Bạn
     </footer> -->
-
+    </div>
     <script>
         function calculateLunarNewYear() {
             const lunarNewYearDates = {
@@ -100,6 +102,8 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+        
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
