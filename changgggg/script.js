@@ -157,11 +157,43 @@ const screen1 = document.getElementById('screen1');
 const screen2 = document.getElementById('screen2');
 const giftBox = document.getElementById('giftBox');
 const giftBoxWrapper = document.getElementById('giftBoxWrapper');
+const backgroundMusic = document.getElementById('backgroundMusic');
+const musicToggle = document.getElementById('musicToggle');
+const musicToggleIcon = document.getElementById('musicToggleIcon');
 let opened = false;
+
+function updateMusicToggle() {
+  const isPlaying = !backgroundMusic.paused;
+  musicToggleIcon.classList.toggle('fa-volume-high', isPlaying);
+  musicToggleIcon.classList.toggle('fa-volume-xmark', !isPlaying);
+  musicToggle.setAttribute('aria-label', isPlaying ? 'Tắt nhạc' : 'Bật nhạc');
+  musicToggle.title = isPlaying ? 'Tắt nhạc' : 'Bật nhạc';
+  musicToggle.setAttribute('aria-pressed', String(isPlaying));
+}
+
+backgroundMusic.addEventListener('play', updateMusicToggle);
+backgroundMusic.addEventListener('pause', updateMusicToggle);
+
+musicToggle.addEventListener('click', () => {
+  if (backgroundMusic.paused) {
+    backgroundMusic.play().catch((error) => {
+      console.error('Không thể phát nhạc nền:', error);
+      musicToggle.title = 'Không thể phát nhạc. Nhấn để thử lại.';
+    });
+  } else {
+    backgroundMusic.pause();
+  }
+});
 
 function openGift() {
   if (opened) return;
   opened = true;
+
+  musicToggle.hidden = false;
+  backgroundMusic.play().catch((error) => {
+    console.error('Không thể tự phát nhạc nền:', error);
+    musicToggle.title = 'Không thể phát nhạc. Nhấn để thử lại.';
+  });
 
   // Open lid animation
   giftBox.classList.add('opened');

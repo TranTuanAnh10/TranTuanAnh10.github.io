@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -19,6 +20,11 @@
 
     <!-- ═══ SPARKLES ═══ -->
     <div id="sparkleContainer"></div>
+
+    <audio id="backgroundMusic" src="public/music.mp3" loop preload="auto"></audio>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Bật nhạc" title="Bật nhạc" aria-pressed="false" hidden>
+        <i id="musicToggleIcon" class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+    </button>
 
     <!-- ═══ SCREEN 1: GIFT BOX ═══ -->
     <section id="screen1" aria-label="Màn hình chào mừng">
@@ -60,7 +66,7 @@
                 <div class="polaroid">
                     <div class="polaroid-inner">
                         <!-- Thay "photo.jpg" bằng đường dẫn ảnh của bạn -->
-                        <img src="anh_chang.jpg" alt="Anh & Trang" class="polaroid-photo" />
+                        <img src="public/anh_chang.jpg" alt="Anh & Trang" class="polaroid-photo" />
                     </div>
                     <p class="polaroid-caption">Changgggg Nguyen</p>
                 </div>
@@ -69,30 +75,30 @@
             <!-- Love message -->
             <div class="message">
                 <p>
-                    Chào em, hôm nay là ngày đặc biệt của một nửa thế giới — cũng là ngày tôn vinh những người phụ nữ
-                    tuyệt vời. 💗
+                    💗 Chào em iuu, hôm nay là ngày đặc biệt của một nửa thế giới — cũng là ngày tôn vinh những người phụ nữ
+                    tuyệt vời.
                 </p>
                 <br />
                 <p>
-                    Cảm ơn em đã đến bên anh, cùng anh chia sẻ niềm vui, chia sẻ những áp lực trong cuộc sống.
+                    🌸 Cảm ơn em đã đến bên anh, cùng anh chia sẻ niềm vui, chia sẻ những áp lực trong cuộc sống.
                     Từ những buổi đi đánh cầu lông cùng nhau cho đến những lúc đi
-                    bên em, đi ăn cùng nhau, mỗi khoảnh khắc với em đều là món quà quý giá mà cuộc sống của anh. 🌸
+                    bên em, đi ăn cùng nhau, mỗi khoảnh khắc với em đều là món quà quý giá mà cuộc sống của anh.
                 </p>
                 <br />
                 <p>
-                    Chúc em iu luôn xinh đẹp, hạnh phúc, vui vẻ và luôn rạng rỡ như chính nụ cười luôn nở trên môi em,
+                    🌷 Chúc em iu luôn xinh đẹp, hạnh phúc, vui vẻ và luôn rạng rỡ như chính nụ cười luôn nở trên môi em,
                     luôn yêu thương, luôn dành những thứ tốt đẹp nhất cho chúng mình.
-                    Dù mai sau có thế nào, anh vẫn sẽ luôn ở đây — yêu em, bảo vệ em và cùng em bước qua mọi mùa
-                    hoa. 🌷
+                    Dù mai sau có thế nào, anh vẫn sẽ luôn ở đây yêu em, bảo vệ em và cùng em bước qua mọi mùa
+                    hoa.
                 </p>
                 <br />
                 <p>
-                    Anh hi vọng chúng mình sẽ luôn iu thương nhau, cùng nhau vượt qua bao khó khăn trong cuộc sống.
-                    Cố gắng vì tương lai thật tuyệt vời phía trước ạa.💗
+                    💗 Anh hi vọng chúng mình sẽ luôn iu thương nhau, cùng nhau vượt qua bao khó khăn trong cuộc sống.
+                    Cố gắng vì tương lai thật tuyệt vời phía trước ạa.
                 </p>
                 <br />
                 <p>
-                    💗 YEU EM TRANG NGUYEN 💗
+                    💝 YEU EM TRANG NGUYEN 💝
                 </p>
             </div>
 
